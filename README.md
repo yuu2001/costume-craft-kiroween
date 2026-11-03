@@ -2,7 +2,7 @@
 
 An AI-assisted Halloween and costume planner that turns an occasion, a vibe, and a budget into a costume brief, a shopping checklist, and DIY steps.
 
-**Live demo:** https://yuu2001.github.io/costume-craft-kiroween/
+**Demo URL:** https://yuu2001.github.io/costume-craft-kiroween/
 
 The plan is written in the browser. The same answers always produce the same costume, so the demo works with no account, no API key, and no network after the page has loaded.
 
@@ -35,11 +35,13 @@ npm test
 
 ## GitHub Pages
 
-The live site is published by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every push to `main`:
+The demo URL is:
 
 https://yuu2001.github.io/costume-craft-kiroween/
 
-The workflow uploads `index.html`, the stylesheet, the scripts, and the favicon. Links are relative, which is what a project site on `github.io` needs. `.nojekyll` is included so Jekyll does not hide files. The same files also work if Pages is switched to **Deploy from a branch → `main` → `/ (root)`**.
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) uploads `index.html`, the stylesheet, the scripts, and the favicon on every push to `main`. Links are relative, which is what a project site on `github.io` needs. `.nojekyll` is included so Jekyll does not hide files.
+
+The first time, Pages has to be turned on in the repository settings. The automation token cannot create the site: both the Pages API and `actions/configure-pages` return `Resource not accessible by integration` unless the caller has `administration:write` and `pages:write`. In **Settings → Pages**, choose **GitHub Actions**, then re-run the Pages workflow. **Deploy from a branch → `main` → `/ (root)`** also works, because `index.html` is already at the repository root.
 
 ## How this was built with Kiro
 

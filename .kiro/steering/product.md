@@ -19,7 +19,7 @@ CostumeCraft is a static Halloween and costume planner for Kiroween 2026. It tur
 
 ## Pages
 
-GitHub Pages is published by `.github/workflows/pages.yml` from `main`:
+GitHub Pages is published by `.github/workflows/pages.yml` from `main`. The first enablement is a repository setting (GitHub Actions, or branch `main` folder `/`). The automation token cannot create the Pages site by itself. The public URL is:
 
 https://yuu2001.github.io/costume-craft-kiroween/
 
