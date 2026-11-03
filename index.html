@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CostumeCraft — costume briefs, checklists, and DIY steps</title>
+    <meta
+      name="description"
+      content="CostumeCraft turns an occasion, a vibe, and a budget into a costume brief, a shopping checklist, and DIY steps. It runs in the browser."
+    />
+    <meta name="theme-color" content="#110d16" />
+    <meta property="og:title" content="CostumeCraft" />
+    <meta
+      property="og:description"
+      content="An on-device Halloween and costume planner. Occasion, vibe, and budget in. A brief, a checklist, and DIY steps out."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yuu2001.github.io/costume-craft-kiroween/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,680;1,9..144,560&family=Outfit:wght@380;520;640&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#planner">Skip to the planner</a>
+    <header class="site-header">
+      <a class="wordmark" href="#planner">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3.5v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          <rect x="9.5" y="7" width="13" height="15" rx="2" fill="currentColor" />
+          <path d="M9.5 12h13M9.5 16.5h13" stroke="#1a0d08" stroke-width="1.4" />
+          <path d="M13 22.2 16 28l3-5.8" fill="#e6c27a" />
+        </svg>
+        <span>CostumeCraft</span>
+      </a>
+      <nav class="nav" aria-label="Page">
+        <a href="#planner">Planner</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Kiroween 2026</p>
+        <h1>Tell it the night. It writes the costume.</h1>
+        <p class="lede">
+          An AI-assisted planner that turns an occasion, a vibe, and a budget into a character brief, a shopping checklist, and DIY steps. The plan is written on this device, so the demo still works offline.
+        </p>
+      </section>
+
+      <div class="layout" id="planner">
+        <form class="planner" id="planner-form">
+          <div class="panel-head">
+            <h2>The brief</h2>
+            <p>Pick the night, then the mood. Three vibes is the useful maximum.</p>
+          </div>
+
+          <fieldset>
+            <legend>Occasion</legend>
+            <div class="choices" id="occasions">
+              <button type="button" class="choice" data-occasion="party" aria-pressed="true">
+                <span class="choice-title">Party</span>
+                <span class="choice-copy">Readable across a crowded room</span>
+              </button>
+              <button type="button" class="choice" data-occasion="cosplay" aria-pressed="false">
+                <span class="choice-title">Cosplay</span>
+                <span class="choice-copy">A character in one sentence</span>
+              </button>
+              <button type="button" class="choice" data-occasion="kids" aria-pressed="false">
+                <span class="choice-title">Kids</span>
+                <span class="choice-copy">Soft, cool, easy to remove</span>
+              </button>
+              <button type="button" class="choice" data-occasion="office" aria-pressed="false">
+                <span class="choice-title">Office</span>
+                <span class="choice-copy">Still fine in a meeting</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Vibe</legend>
+            <div class="chips" id="vibes">
+              <button type="button" class="chip" data-vibe="spooky" aria-pressed="true">Spooky</button>
+              <button type="button" class="chip" data-vibe="glam" aria-pressed="false">Glam</button>
+              <button type="button" class="chip" data-vibe="funny" aria-pressed="false">Funny</button>
+              <button type="button" class="chip" data-vibe="vintage" aria-pressed="false">Vintage</button>
+              <button type="button" class="chip" data-vibe="futuristic" aria-pressed="false">Futuristic</button>
+              <button type="button" class="chip" data-vibe="cozy" aria-pressed="false">Cozy</button>
+              <button type="button" class="chip" data-vibe="regal" aria-pressed="false">Regal</button>
+              <button type="button" class="chip" data-vibe="chaotic" aria-pressed="false">Chaotic</button>
+              <button type="button" class="chip" data-vibe="elegant" aria-pressed="false">Elegant</button>
+              <button type="button" class="chip" data-vibe="neon" aria-pressed="false">Neon</button>
+              <button type="button" class="chip" data-vibe="woodland" aria-pressed="false">Woodland</button>
+              <button type="button" class="chip" data-vibe="nautical" aria-pressed="false">Nautical</button>
+            </div>
+            <p class="hint" id="vibe-hint">Choose up to three.</p>
+          </fieldset>
+
+          <div class="field">
+            <div class="field-label">
+              <label for="budget">Budget</label>
+              <output id="budget-out" for="budget">$40</output>
+            </div>
+            <input id="budget" type="range" min="10" max="200" step="5" value="40" />
+            <div class="presets" id="presets">
+              <button type="button" data-budget="20">$20</button>
+              <button type="button" data-budget="40">$40</button>
+              <button type="button" data-budget="75">$75</button>
+              <button type="button" data-budget="150">$150</button>
+            </div>
+            <p class="hint" id="budget-tier"></p>
+          </div>
+
+          <fieldset>
+            <legend>DIY skill</legend>
+            <div class="skills" id="skills">
+              <button type="button" class="skill" data-skill="beginner" aria-pressed="true">
+                <span class="choice-title">Beginner</span>
+                <span class="choice-copy">Glue, scissors, safety pins</span>
+              </button>
+              <button type="button" class="skill" data-skill="intermediate" aria-pressed="false">
+                <span class="choice-title">Intermediate</span>
+                <span class="choice-copy">Hand sewing, simple structure</span>
+              </button>
+              <button type="button" class="skill" data-skill="advanced" aria-pressed="false">
+                <span class="choice-title">Advanced</span>
+                <span class="choice-copy">Patterning, dye, small lights</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="wearer">Who is wearing it <span class="optional">optional</span></label>
+            <input id="wearer" name="wearer" type="text" maxlength="40" autocomplete="off" placeholder="Mina, or the night shift" />
+          </div>
+
+          <div class="field">
+            <label for="notes">Must include <span class="optional">optional</span></label>
+            <textarea id="notes" name="notes" maxlength="160" rows="2" placeholder="A hat, a short cape, glasses…"></textarea>
+          </div>
+
+          <details class="polish" id="polish">
+            <summary>Optional: polish the prose with your own key</summary>
+            <p class="hint">
+              The checklist, prices, and steps always come from the on-device engine. A key only rewrites the name and the brief. It stays in this browser and is sent only to the address you set, and only when polish is on.
+            </p>
+            <label class="checkline">
+              <input id="polish-enabled" type="checkbox" />
+              Polish the prose on the next plan
+            </label>
+            <label for="llm-base">API base URL</label>
+            <input id="llm-base" type="url" inputmode="url" placeholder="https://api.openai.com/v1" autocomplete="off" />
+            <label for="llm-model">Model</label>
+            <input id="llm-model" type="text" maxlength="80" placeholder="gpt-4o-mini" autocomplete="off" />
+            <label for="llm-key">API key</label>
+            <input id="llm-key" type="password" maxlength="300" autocomplete="off" />
+            <label class="checkline">
+              <input id="llm-remember" type="checkbox" />
+              Remember the key in this browser
+            </label>
+            <button type="button" class="text-button" id="forget-key">Forget the saved key</button>
+            <p class="hint" id="polish-status" role="status"></p>
+          </details>
+
+          <div class="actions">
+            <button type="submit" class="primary" id="craft">Craft my costume</button>
+            <button type="button" class="ghost" id="example">Use an example</button>
+          </div>
+        </form>
+
+        <section class="result" id="result" aria-live="polite">
+          <div class="empty" id="empty">
+            <p class="eyebrow">Waiting for a night</p>
+            <h2>Your plan will land here.</h2>
+            <p>
+              It stays in this browser. The same answers always write the same costume, which is what makes the demo reviewable with the network off.
+            </p>
+          </div>
+          <div class="plan" id="plan" hidden></div>
+        </section>
+      </div>
+
+      <section class="about" id="about">
+        <div class="about-copy">
+          <p class="eyebrow">About</p>
+          <h2>How CostumeCraft was built with Kiro</h2>
+          <p>
+            CostumeCraft is a static planner. You choose a party, a cosplay, a kids' event, or the office, add up to three vibes, set a budget and a skill level, and the page writes a concept name, a character brief, a priced materials list, DIY steps, and three alternatives.
+          </p>
+          <p>
+            The generator is a rule and template engine in <code>js/engine.js</code>. It does not call a server. If you want a model to rewrite the prose, you can add your own key. The shopping list does not change when that happens.
+          </p>
+          <p>
+            Kiro's project files are in <a href="https://github.com/yuu2001/costume-craft-kiroween/tree/main/.kiro"><code>/.kiro</code></a>. Steering docs keep the offline plan, the kids and office safety lines, and this dark UI from drifting. The spec in <code>.kiro/specs/costume-planner</code> is the product contract: requirements, design, and tasks. A hook on <code>js/engine.js</code> asks an agent to confirm every plan still has a name, a brief, materials, steps, a cost, and alternatives.
+          </p>
+          <p>
+            The live demo is
+            <a href="https://yuu2001.github.io/costume-craft-kiroween/">yuu2001.github.io/costume-craft-kiroween</a>.
+            GitHub Pages serves this repository from <code>main</code>. Last plans are saved with <code>localStorage</code>. Use Print when you want a paper checklist.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>CostumeCraft · Kiroween 2026 · MIT · plans stay on this device</p>
+    </footer>
+    <noscript>
+      <p class="noscript">CostumeCraft needs JavaScript. After that, the planner runs in your browser and does not need an account.</p>
+    </noscript>
+    <script src="js/engine.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "costume-craft",
+  "private": true,
+  "description": "On-device Halloween and costume planner for Kiroween 2026.",
+  "scripts": {
+    "test": "node --test tests/engine.test.js"
+  },
+  "license": "MIT"
+}
