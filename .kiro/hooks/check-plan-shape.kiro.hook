@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "name": "Check costume plan shape",
+  "description": "When the generator changes, ask the agent to re-check the plan contract and run the engine tests.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["js/engine.js", "tests/engine.test.js"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The costume generator or its tests just changed. Read .kiro/specs/costume-planner/requirements.md and .kiro/steering/generator.md. Run npm test. Confirm generatePlan still returns a concept name, character brief, materials with costs, DIY steps, an estimated cost equal to the material sum, and three alternatives. Confirm kids and office plans keep the face visible, and that weapon or blood notes do not become props. Fix the generator if any of that drifted. Do not add a backend or a required API key."
+  }
+}

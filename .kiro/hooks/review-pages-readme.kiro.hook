@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "name": "Review the Pages write-up",
+  "description": "When the README changes, ask the agent to keep the live demo URL and the Kiro explanation accurate.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["README.md", "index.html"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "README.md or index.html changed. Confirm the about copy still explains CostumeCraft, the on-device generator, and the files under .kiro (steering, specs/costume-planner, and hooks). Confirm the GitHub Pages URL https://yuu2001.github.io/costume-craft-kiroween/ is present, asset paths stay relative, and .kiro is not ignored by git. Do not remove the MIT license."
+  }
+}

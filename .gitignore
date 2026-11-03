@@ -1,0 +1,4 @@
+.DS_Store
+*.log
+
+# /.kiro is the Kiro product contract and must stay in the repository.
