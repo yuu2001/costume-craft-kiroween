@@ -35,11 +35,11 @@ npm test
 
 ## GitHub Pages
 
-The site is published from the `main` branch, folder `/` (the repository root). The public URL is:
+The live site is published by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every push to `main`:
 
 https://yuu2001.github.io/costume-craft-kiroween/
 
-Pages settings, if you need to turn them back on: **Settings → Pages → Deploy from a branch → `main` → `/ (root)`**. `.nojekyll` is included so Jekyll does not hide project files. Links to CSS and scripts are relative, which is what a project site on `github.io` needs.
+The workflow uploads `index.html`, the stylesheet, the scripts, and the favicon. Links are relative, which is what a project site on `github.io` needs. `.nojekyll` is included so Jekyll does not hide files. The same files also work if Pages is switched to **Deploy from a branch → `main` → `/ (root)`**.
 
 ## How this was built with Kiro
 
